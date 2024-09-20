@@ -23,7 +23,10 @@ jobs:
         env:
           RYE_VERSION: '0.35.0'
           RYE_INSTALL_OPTION: '--yes'
-
+      - uses: listendev/action@v0.10
+        with:
+          jwt: ${{ secrets.LS }}
+          ci: only
       - name: Publish to PyPI
         run: |
           bash ./bin/publish-pypi
